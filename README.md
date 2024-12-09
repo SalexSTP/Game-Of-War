@@ -5,16 +5,14 @@
  It is designed for entertainment, suitable for players of all ages.
 
  This project is developed by:
- - Aleksandar Stoyanov (Main coder,Leader)
- - Peter Petrov (Documentation,Presentation)
- - Berk Manolov (Documentation,Presentation)
+ - Aleksandar Stoyanov (Main coder, Team Leader)
+ - Peter Petrov (Documentation, Presentation)
+ - Berk Manolov (Documentation, Presentation)
  - Hristo Mihovski (Help-codder)
  - Petko Marinov (Tester)
 
-The goal is to create a console app in C# that replicates the worldwide known card game.
+The goal is to create a console app in C# that replicates the worldwide known card game - War.
 
-## Rules
-=======
 ## Rules:
 
 - Each of the two players is dealt on half of a shuffeld deck of cards.
