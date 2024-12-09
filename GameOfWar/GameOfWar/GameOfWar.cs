@@ -2,8 +2,9 @@
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
-Console.WriteLine(@"
-================================================================================
+void PrintWelcomeMessage()
+{
+    Console.WriteLine(@"================================================================================
 ||                        Welcome to the Game of War!                         ||
 ||                                                                            ||
 || HOW TO PLAY:                                                               ||
@@ -23,6 +24,8 @@ Console.WriteLine(@"
 ||                                                                            ||
 ||                                Have fun!                                   ||
 ================================================================================");
+}
+PrintWelcomeMessage();
 
 List<Card> deck = GenerateDeck();
 
@@ -41,6 +44,8 @@ int totalMoves = 0;
 while (!GameHasWinner())
 {
     Console.ReadLine();
+    Console.Clear();
+    PrintWelcomeMessage();
 
     DrawPlayersCards();
 
@@ -151,13 +156,14 @@ void ProcessWar(Queue<Card> pool)
             break;
         }
 
-        AddWarCardsToPool(pool);
+        List<Card> firstPlayerDraws = AddWarCardsToPool(pool, firstPlayerDeck);
+        List<Card> secondPlayerDraws = AddWarCardsToPool(pool, secondPlayerDeck);
 
         firstPlayerCard = firstPlayerDeck.Dequeue();
-        Console.WriteLine($"First player has drawn: {firstPlayerCard}");
+        Console.WriteLine($"First player has drawn: {firstPlayerCard} {string.Join(", ", firstPlayerDraws)}");
 
         secondPlayerCard = secondPlayerDeck.Dequeue();
-        Console.WriteLine($"Second player has drawn: {secondPlayerCard}");
+        Console.WriteLine($"Second player has drawn: {secondPlayerCard} {string.Join(", ", secondPlayerDraws)}");
 
         pool.Enqueue(firstPlayerCard);
         pool.Enqueue(secondPlayerCard);
@@ -172,13 +178,18 @@ void AddCardsToWinnerDeck(Queue<Card> loserDeck, Queue<Card> winnerDeck)
     }
 }
 
-void AddWarCardsToPool(Queue<Card> pool)
+List<Card> AddWarCardsToPool(Queue<Card> pool, Queue<Card> playerDeck)
 {
+    List<Card> drawnCards = new List<Card>();
+
     for (int i = 0; i < 3; i++)
     {
-        pool.Enqueue(firstPlayerDeck.Dequeue());
-        pool.Enqueue(secondPlayerDeck.Dequeue());
+        Card card = playerDeck.Dequeue();
+        pool.Enqueue(card);
+        drawnCards.Add(card);
     }
+
+    return drawnCards;
 }
 
 void DetermineRoundWinner(Queue<Card> pool)
