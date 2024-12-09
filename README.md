@@ -13,7 +13,6 @@
 
 The goal is to create a console app in C# that replicates the worldwide known card game.
 
-<<<<<<< Updated upstream
 ## Rules
 =======
 ## Rules:
@@ -28,4 +27,3 @@ The goal is to create a console app in C# that replicates the worldwide known ca
 - If there is another tie, the war process repeats.
 - If a player does not have enough cards for a full war, they play as many cards as they have, and the outcome is determined from there.
 - The player with the most card in their deck wins.
->>>>>>> Stashed changes
