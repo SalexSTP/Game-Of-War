@@ -1,7 +1,7 @@
 # Game-Of-War
 ## Goal of the game
 "Game-Of-War" is a card game made in C# where 2 players (in this case you and the computer) compete to win all the cards in the deck. 
-- Each of the two players is dealt on half of a shuffeld deck of cards.
+- Each of the 2-4 players is dealt on half of a shuffeld deck of cards.
 - Each turn, each player draws on card from their deck.
 - The player that drew the card with highher value gets both cards.
 - if the card drawn are the same it starts the "War".
@@ -14,7 +14,7 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Structure
 - .vs
-- GameOrWar
+- GameOfWar
     - bin
     - obj
     - Card.cs
@@ -22,4 +22,4 @@
     - CardSuit.cs
     - GameOfWar.cs
     - GameOfWar.csproj
-- Hangman.sln
+- GameOfWar.sln
