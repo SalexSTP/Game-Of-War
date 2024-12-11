@@ -203,7 +203,7 @@ void DetermineRoundWinner(Queue<Card> pool)
             firstPlayerDeck.Enqueue(card);
         }
     }
-    else
+    else if ((int)firstPlayerCard.Face < (int)secondPlayerCard.Face)
     {
         Console.WriteLine("The second player has won the cards!");
 
@@ -211,5 +211,9 @@ void DetermineRoundWinner(Queue<Card> pool)
         {
             secondPlayerDeck.Enqueue(card);
         }
+    }
+    else
+    {
+        Console.WriteLine("Both players drew the same card. No one wins the round!");
     }
 }
